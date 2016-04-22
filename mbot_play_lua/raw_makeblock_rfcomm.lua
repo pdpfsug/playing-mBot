@@ -1,0 +1,66 @@
+-- require 'ul_serial'
+-- ports = ul_serial.io.Serial:getPorts()
+
+-- print(ports[1])
+
+local clock=os.clock
+
+function sleep(n)
+   local t0 =clock()
+   while clock()-t0 <=n do end
+end
+
+
+
+mricevuto = string.char(0xff,0x55)
+
+
+
+comandoavantil = string.char(0xff,0x55,0x06,0x60,0x02,0x0a,0x09,0xff,00)
+
+comandoavantir = string.char(0xff,0x55,0x06,0x60,0x02,0x0a,0x0a,0xff,00)
+
+comandoavanti = string.char(0xff,0x55,0x07,0x00,0x02,0x05,0x01,0xff,0xff,00)
+
+comandostop = string.char(0xff,0x55,0x07,0x00,0x02,0x05,0x00,0x00,0x00,00)
+comandostop1 = string.char(0xff,0x55,0x06,0x60,0x02,0x0a,0x09,0x00,00)
+comandosuono = string.char(0xff,0x55,0x07,0x00,0x02,0x22,0x7b,00,0x06,00)
+comandogetultra =string.char(0xff,0x55,0x04,0x02,0x01,0x01,0x03)
+comando2ledred =string.char(0xff,0x55,0x09,0x00,0x02,0x08,0x07,0x02,0x00,0x0f,0xff,0x0f)
+
+print(string.len(comando2ledred))
+wserial=io.open("/dev/rfcomm0","w")
+print(wserial)
+rserial=io.open("/dev/rfcomm0","r")
+
+wserial:write(comando2ledred)
+wserial:flush()
+print("trasmesso")
+while chaine==nil do
+        chaine=rserial:read()
+        rserial:flush()
+end
+
+print("ricevuto")
+print(chaine)
+
+--wserial:flush()
+--wserial:write(comandosuono)
+--wserial:flush()
+
+--wserial:write(comandoavantil)
+--wserial:flush()
+--wserial:write(comandoavantir)
+--wserial:flush()
+
+
+sleep(4)
+
+
+wserial:close()
+rserial:close()
+
+
+
+
+
