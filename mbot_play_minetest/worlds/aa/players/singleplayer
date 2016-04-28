@@ -1,43 +1,43 @@
 breath = 11
 hp = 20
 name = singleplayer
-pitch = 15.88
-position = (316.3,45,-264.54)
+pitch = 11.89
+position = (304.41,45,-323.56)
 version = 1
-yaw = -162.36
+yaw = -298.33
 PlayerArgsEnd
 List main 32
 Width 0
-Item default:torch 5
-Item mesecons_luacontroller:luacontroller0000
+Item digilines_lcd:lcd
+Item digiterm:digiterm
 Item mesecons_walllever:wall_lever_off
 Item digilines:wire_std_00000000
 Item mesecons_button:button_off
-Item default:dirt_with_grass
-Item mesecons:wire_00000000_off
 Item mesecons_insulated:insulated_off
-Item default:cobble
+Item mesecons:wire_00000000_off
+Item default:steelblock
+Item default:stone
 Item default:coal_lump
 Item mbot:lcc
 Item default:dirt
 Item default:gravel
-Item default:dry_grass_1 2
+Item default:dirt_with_grass
 Item default:tree
 Item default:leaves
-Item mesecons_lightstone:lightstone_green_off
-Item default:sapling 10
-Item farming:seed_wheat
+Item mesecons_lightstone:lightstone_red_off
+Item wireless:trans
+Item wireless:recv
 Item mesecons_hydroturbine:hydro_turbine_off
 Item default:sand
 Item nixie_tubes:tube_off
 Item default:acacia_tree
 Item default:grass_1
-Item default:acacia_sapling
+Item mesecons_luacontroller:luacontroller0000
 Item digilines_rtc:rtc
 Item default:acacia_leaves
-Item digilines_lcd:lcd
+Item mesecons_extrawires:corner_off
 Item default:water_source
-Item default:sign_wall
+Item default:sign_wall 3
 Item default:jungletree
 Item mesecons_gates:and_off
 EndInventoryList
