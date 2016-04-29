@@ -18,4 +18,7 @@ a mBot tramite porta rfcomm.
 
 **Requisiti**: la libreria pybluez
 
+## rfcomm-server.py e rfcomm-client.py
 
+Analoghi dei corrispondenti in C nella directory mbot_play_c, presi da
+http://people.csail.mit.edu/albert/bluez-intro/x232.html
