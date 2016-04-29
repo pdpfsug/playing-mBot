@@ -114,6 +114,13 @@ comandoz = function(c)
 	   print(wserial)
 	   wserial:write(c)
 	   wserial:close()
+          
+while chaine==nil do
+  chaine=rserial:read()
+  rserial:flush()
+end
+print("ricevuto")           
+print(string.len(chaine))
            rs:close()
 	   print("Ho spedito a BT!")
         else 
