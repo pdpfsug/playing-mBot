@@ -1,18 +1,18 @@
 breath = 11
 hp = 20
 name = saimon1
-pitch = 31.49
-position = (-295.04,105,-610.32)
+pitch = 13.49
+position = (208,45,138.35)
 version = 1
-yaw = -183.85
+yaw = -345.41
 PlayerArgsEnd
 List main 32
 Width 0
-Item default:water_source
+Item mesecons_detector:object_detector_off
 Item mesecons_gates:and_off
 Item mesecons_hydroturbine:hydro_turbine_off
 Item mesecons_switch:mesecon_switch_off
-Item default:dirt
+Item default:torch 5
 Item mesecons_walllever:wall_lever_off
 Item mesecons:wire_00000000_off
 Item default:stone
@@ -23,18 +23,18 @@ Item default:junglegrass 2
 Item default:torch 2
 Item default:leaves
 Item default:grass_1
-Empty
+Item default:jungleleaves
 Item mesecons_lightstone:lightstone_gray_off
 Item mesecons_lightstone:lightstone_darkgray_off
 Item mesecons_lightstone:lightstone_green_off
 Item mesecons_lightstone:lightstone_blue_off
 Item default:coal_lump
-Empty
-Empty
+Item default:dirt
+Item default:steelblock
 Empty
 Empty
 Item mesecons_lightstone:lightstone_yellow_off
-Empty
+Item default:water_source
 Empty
 Empty
 Empty
