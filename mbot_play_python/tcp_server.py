@@ -33,10 +33,6 @@ class MakerBotTCPHandler(SocketServer.BaseRequestHandler):
     client.
     """
 
-    def serve_forever(self, client_socket):
-        self.client_socket = client_socket
-        super(MakerBotTCPHandler, self).serve_forever()
-
     def traduci_da_client_a_mbot(self, data):
         """Traduce il comando da caratteri a bytes per MakerBot.
 
@@ -48,6 +44,10 @@ class MakerBotTCPHandler(SocketServer.BaseRequestHandler):
         CARATTERI_ESADECIMALI = data.split(SPAZIO)
         INTERI_ESADECIMALI = [int(x, 16) for x in CARATTERI_ESADECIMALI]
         return "".join([chr(x) for x in INTERI_ESADECIMALI])
+
+    @property
+    def client_socket(self):
+        return self.server.client_socket
 
     def handle(self):
         # self.request is the TCP socket connected to the client
@@ -66,7 +66,8 @@ class MakerBotTCPHandler(SocketServer.BaseRequestHandler):
         # e lo rimanda indietro al client
         printable_mbot_data = [hex(ord(x)) for x in mbot_data]
         print("received %s" % printable_mbot_data)
-        self.request.sendall(printable_mbot_data)
+        #self.request.sendall(printable_mbot_data)
+        self.request.sendall('[%s]' % ', '.join(map(str, printable_mbot_data)))
 
 
 class TestSocket(object):
@@ -103,4 +104,5 @@ if __name__ == "__main__":
 
     # Activate the server; this will keep running until you
     # interrupt the program with Ctrl-C
-    server.serve_forever(client_socket)
+    server.client_socket = client_socket
+    server.serve_forever()
