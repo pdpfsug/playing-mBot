@@ -34,7 +34,11 @@ local on_digiline_receive = function(pos, node, channel, msg)
 	clearscreen(pos)
 	if msg ~= "" then
 		print("Arrivato un messaggio. Mando al BT")
-		comandoz(msg)
+		local answer = comandoz(msg)
+        if string.len(answer) > 11 then
+            print("Arrivata una risposta diversa da un semplice ACK")
+        end
+		digiline:receptor_send(pos, digiline.rules.default, channel, answer)
 
 	end
 end
@@ -101,34 +105,49 @@ minetest.register_entity("mbot:text", {
 
 -- Funzione da migliorare per inviare i dati via bluetooth
 
+-- comandoz = function(c)
+--         print("Ho ricevuto questi caratteri")
+-- 	print(string.len(c))
+-- 
+-- 	
+--         local wserial=io.open("/dev/rfcomm0","wb")
+-- --        local wserial=io.open("/dev/ttyUSB0","w")
+-- --	local wserial=io.open("datimbot","a")
+--         if wserial ~= nil then
+--            local rs = io.open("/dev/rfcomm0","rb")
+-- 	   print(wserial)
+-- 	   wserial:write(c)
+-- 	   wserial:close()
+--           
+-- while chaine==nil do
+--   chaine=rserial:read()
+--   rserial:flush()
+-- end
+-- print("ricevuto")           
+-- print(string.len(chaine))
+--            rs:close()
+-- 	   print("Ho spedito a BT!")
+--         else 
+--            print("Non spedito a BT, Errore apertura porta!")
+--         end
+-- 
+-- end
+
 comandoz = function(c)
-        print("Ho ricevuto questi caratteri")
-	print(string.len(c))
-
-	
-        local wserial=io.open("/dev/rfcomm0","wb")
---        local wserial=io.open("/dev/ttyUSB0","w")
---	local wserial=io.open("datimbot","a")
-        if wserial ~= nil then
-           local rs = io.open("/dev/rfcomm0","rb")
-	   print(wserial)
-	   wserial:write(c)
-	   wserial:close()
-          
-while chaine==nil do
-  chaine=rserial:read()
-  rserial:flush()
+    local socket = require("socket")
+    host = host or "localhost"
+    port = port or 4444
+    local sock = assert(socket.connect(host, port))
+    sock:send(c)
+    local answer, e = sock:receive('*l', 'ANSWER-')
+    if (e) then
+        print("Errore " .. e)
+    else
+        print("Risposta " .. answer)
+    end
+    sock:close()
+    return answer 
 end
-print("ricevuto")           
-print(string.len(chaine))
-           rs:close()
-	   print("Ho spedito a BT!")
-        else 
-           print("Non spedito a BT, Errore apertura porta!")
-        end
-
-end
-
 
 post_string = function(s,purl)
 
