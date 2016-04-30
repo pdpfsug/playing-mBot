@@ -18,7 +18,7 @@ import bluetooth as Bluetooth
 __author__ = "Luca Ferroni <fero@befair.it>"
 __license__ = "GNU Affero Public License v3"
 
-HOST, PORT = "", 4000
+HOST, PORT = "", 10001
 address = "00:07:02:03:20:94"  # indirizzo MAC device bluetoot del robottino di @KiraColci
 channel = 1
 TEST_MODE = False  # Mettere True per testare il tutto
@@ -53,9 +53,10 @@ class MakerBotTCPHandler(SocketServer.BaseRequestHandler):
         # self.request is the TCP socket connected to the client
         self.data = self.request.recv(1024).strip()
         print("{} ha scritto:".format(self.client_address[0]))
-        print(self.data)
+        print(repr(self.data))
 
-        cmd_to_mbot = self.traduci_da_client_a_mbot(self.data)
+        # cmd_to_mbot = self.traduci_da_client_a_mbot(self.data)
+        cmd_to_mbot = self.data
 
         # Invia il comando al MakerBot
         self.client_socket.sendall(cmd_to_mbot)
@@ -67,7 +68,9 @@ class MakerBotTCPHandler(SocketServer.BaseRequestHandler):
         printable_mbot_data = [hex(ord(x)) for x in mbot_data]
         print("received %s" % printable_mbot_data)
         #self.request.sendall(printable_mbot_data)
-        self.request.sendall('[%s]' % ', '.join(map(str, printable_mbot_data)))
+        #DAWID self.request.sendall('[%s]' % ', '.join(map(str, printable_mbot_data)))
+        self.request.sendall(mbot_data)
+        self.request.sendall("\r\n")
 
 
 class TestSocket(object):

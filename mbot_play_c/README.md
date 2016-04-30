@@ -15,18 +15,20 @@ In questa directory mettiamo gli script realizzati/testati:
 
 Questi programmi consentono di avviare un server e un client rfcomm
 
-**Requisiti**: la libreria bluez
+**Requisiti**: la libreria bluez, su Debian-like: libbluetooth e libbluetooth-dev, su ArchLinux: bluez-libs
 
 ## Compilare ed eseguire i programmi
 
 Il C è un linguaggio compilato per questo è necessario creare file binari e poi eseguirli.
 Questo si può fare con:
 
-  # gcc -o <programma> -lbluetooth <programma>.c
+  # gcc -o <programma> <programma>.c -lbluetooth
 
 Ad esempio:
 
-  # gcc -o rfcomm-server -lbluetooth rfcomm-server.c
+  # gcc -o rfcomm-server rfcomm-server.c -lbluetooth
+
+**NOTA**: In alcune versioni di gcc è importante mettere -lbluetooth alla fine!
 
 Per eseguire è sufficiente fare:
 

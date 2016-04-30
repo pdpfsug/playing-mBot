@@ -1,15 +1,16 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <sys/socket.h>
-#include <bluetooth/bluetooth.h>
-#include <bluetooth/rfcomm.h>
+// #include <bluetooth/bluetooth.h>
+// #include <bluetooth/rfcomm.h>
 
 int main(int argc, char **argv)
 {
     struct sockaddr_rc addr = { 0 };
     int s, status;
     //char dest[18] = "0C:60:76:DB:A4:1D";
-    char dest[18] = "00:0A:94:16:AE:66";
+    //char dest[18] = "00:0A:94:16:AE:66";
+    char dest[18] = "74:2F:68:36:4F:F9";
 
     // allocate a socket
     s = socket(AF_BLUETOOTH, SOCK_STREAM, BTPROTO_RFCOMM);

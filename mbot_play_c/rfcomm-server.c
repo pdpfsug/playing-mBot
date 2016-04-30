@@ -10,6 +10,9 @@ int main(int argc, char **argv)
     char buf[1024] = { 0 };
     int s, client, bytes_read;
     socklen_t opt = sizeof(rem_addr);
+    // @feroda: bind only to a specific address
+    char dest[18] = "0C:60:76:DB:A4:1D";
+    //char dest[18] = "00:0A:94:16:AE:66";
 
     // allocate socket
     s = socket(AF_BLUETOOTH, SOCK_STREAM, BTPROTO_RFCOMM);
@@ -17,8 +20,11 @@ int main(int argc, char **argv)
     // bind socket to port 1 of the first available 
     // local bluetooth adapter
     loc_addr.rc_family = AF_BLUETOOTH;
-    loc_addr.rc_bdaddr = *BDADDR_ANY;
     loc_addr.rc_channel = (uint8_t) 1;
+
+    // @feroda WAS: loc_addr.rc_bdaddr = *BDADDR_ANY;
+    // @feroda: specify address to bind on
+    str2ba( dest, &loc_addr.rc_bdaddr );
 
     bind(s, (struct sockaddr *)&loc_addr, sizeof(loc_addr));
 
