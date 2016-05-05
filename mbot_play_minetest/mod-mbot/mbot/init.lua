@@ -35,11 +35,12 @@ local on_digiline_receive = function(pos, node, channel, msg)
 	if msg ~= "" then
 		print("Arrivato un messaggio. Mando al BT")
 		local answer = comandoz(msg)
-        if string.len(answer) > 11 then
-            print("Arrivata una risposta diversa da un semplice ACK")
+        if answer ~= nil then
+            if string.len(answer) > 11 then
+                print("Arrivata una risposta diversa da un semplice ACK")
+            end
+		    digiline:receptor_send(pos, digiline.rules.default, "risposta", answer)
         end
-		digiline:receptor_send(pos, digiline.rules.default, channel, answer)
-
 	end
 end
 
@@ -140,13 +141,14 @@ comandoz = function(c)
     local sock = assert(socket.connect(host, port))
     sock:send(c)
     local answer, e = sock:receive('*l', 'ANSWER-')
+    --answer = "ANSWER-pippo"
     if (e) then
         print("Errore " .. e)
     else
         print("Risposta " .. answer)
     end
     sock:close()
-    return answer 
+    return answer
 end
 
 post_string = function(s,purl)
