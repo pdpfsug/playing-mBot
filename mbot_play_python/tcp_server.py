@@ -18,7 +18,7 @@ import bluetooth as Bluetooth
 __author__ = "Luca Ferroni <fero@befair.it>"
 __license__ = "GNU Affero Public License v3"
 
-HOST, PORT = "", 10001
+HOST, PORT = "", 4444
 address = "00:07:02:03:20:94"  # indirizzo MAC device bluetoot del robottino di @KiraColci
 channel = 1
 TEST_MODE = False  # Mettere True per testare il tutto
