@@ -39,7 +39,7 @@ mg_biome_np_humidity_blend = {
 	seed = 90003
 	spread = (8,8,8)
 }
-mg_flags = trees, caves, dungeons, noflat, light
+mg_flags = trees, caves, dungeons, noflat, light, decorations
 mg_name = v7
 mgv7_np_cave1 = {
 	flags = defaults
