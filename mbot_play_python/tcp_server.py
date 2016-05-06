@@ -11,7 +11,7 @@ Si puo' simulare la connessione al MakerBot mettendo TEST_MODE = True
 Ci si può connettere con telnet localhost 4000
 o altro client TCP
 """
-
+import sys
 import SocketServer
 import bluetooth as Bluetooth
 
@@ -96,11 +96,14 @@ if __name__ == "__main__":
 
     # Create the server, binding to localhost on port 9999
     server = SocketServer.TCPServer((HOST, PORT), MakerBotTCPHandler)
+    
+    SocketClass = Bluetooth.BluetoothSocket
 
-    if TEST_MODE:
-        SocketClass = TestSocket
-    else:
-        SocketClass = Bluetooth.BluetoothSocket
+    try:
+        if sys.argv[1] == "test":
+            SocketClass = TestSocket
+    except IndexError:
+        pass
 
     client_socket = SocketClass(Bluetooth.RFCOMM)
     client_socket.connect((address, channel))
