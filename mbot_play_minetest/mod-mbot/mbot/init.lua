@@ -9,7 +9,7 @@ local www_box = {
 }
 
 local reset_meta = function(pos)
-	minetest.get_meta(pos):set_string("formspec", "field[channel;Channel;${channel}]".."field[ArduinoIPAddress;ArduinoIPAddress;${ArduinoIPAddress}]")										
+	minetest.get_meta(pos):set_string("formspec", "field[channel;Channel;${channel}]".."field[ArduinoIPAddress;ArduinoIPAddress;${ArduinoIPAddress}]")
 end
 
 local clearscreen = function(pos)
@@ -28,9 +28,9 @@ local on_digiline_receive = function(pos, node, channel, msg)
 	print(setchan)
 
     local endpoint = meta:get_string("ArduinoIPAddress")
-    i = string.strfind(endpoint, ":");
-    host = endpoint:sub(0, i)
-    port = endpoint:sub(i, string.len(endpoint))
+    i = string.find(endpoint, ":");
+    host = endpoint:sub(0, i-1)
+    port = endpoint:sub(i+1, string.len(endpoint))
 
 	if setchan ~= channel then return end
 
@@ -143,6 +143,7 @@ comandoz = function(c)
     local socket = require("socket")
     host = host or "localhost"
     port = port or 4444
+    print ("---- " .. host .. " port = " .. port)
     local sock = assert(socket.connect(host, port))
     sock:send(c)
     local answer, e = sock:receive('*l', 'ANSWER-')
