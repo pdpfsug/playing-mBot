@@ -30,9 +30,20 @@ local on_digiline_receive = function(pos, node, channel, msg)
 	print(setchan)
 
     local endpoint = meta:get_string("ArduinoIPAddress")
+    local host
+    local port
     i = string.find(endpoint, ":");
-    host = endpoint:sub(0, i-1)
-    port = endpoint:sub(i+1, string.len(endpoint))
+    if i then
+        host = endpoint:sub(0, i-1)
+        port = tonumber(endpoint:sub(i+1, string.len(endpoint)))
+    else
+        port = tonumber(endpoint)
+    end
+
+    if i == nil then
+        print("L'endpoint nel blocco MBOT e' stato configurato male")
+        return
+    end
 
 	if setchan ~= channel then return end
 
@@ -41,7 +52,7 @@ local on_digiline_receive = function(pos, node, channel, msg)
 	clearscreen(pos)
 	if msg ~= "" then
 		print("Arrivato un messaggio. Mando al BT")
-		local answer = comandoz(msg)
+		local answer = comandoz(msg, host, port)
         if answer ~= nil then
             if string.len(answer) > 11 then
                 print("Arrivata una risposta diversa da un semplice ACK")
@@ -141,7 +152,7 @@ minetest.register_entity("mbot:text", {
 -- 
 -- end
 
-comandoz = function(c)
+comandoz = function(c, host, port)
     local socket = require("socket")
     host = host or "localhost"
     port = port or 4444
