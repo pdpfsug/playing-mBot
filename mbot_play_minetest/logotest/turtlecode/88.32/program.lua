@@ -1,0 +1,8 @@
+turtle.brushDown(5)
+turtle.forward(5)
+turtle.turnRight(1)
+turtle.brushUp(5)
+turtle.brushDown(6)
+turtle.forward(5)
+turtle.turnRight(1)
+turtle.brushUp(6)
