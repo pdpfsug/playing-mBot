@@ -26,7 +26,12 @@ local on_digiline_receive = function(pos, node, channel, msg)
 	local meta = minetest.get_meta(pos)
 	local setchan = meta:get_string("channel")
 	print(setchan)
-        local setip =meta:get_string("ArduinoIPAddress")
+
+    local endpoint = meta:get_string("ArduinoIPAddress")
+    i = string.strfind(endpoint, ":");
+    host = endpoint:sub(0, i)
+    port = endpoint:sub(i, string.len(endpoint))
+
 	if setchan ~= channel then return end
 
 	meta:set_string("text", msg)
