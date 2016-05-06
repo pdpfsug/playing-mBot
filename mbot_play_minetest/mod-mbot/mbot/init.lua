@@ -1,6 +1,8 @@
 -- REST Arduino Interface
 -- Luca Colciago @dottork
--- 13/12/2015
+-- Luca Ferroni @feroda
+-- Dawid Weglarz @Radeox
+-- 1st May 2016
 --
 --
 
