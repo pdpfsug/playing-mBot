@@ -9,7 +9,7 @@ local www_box = {
 }
 
 local reset_meta = function(pos)
-	minetest.get_meta(pos):set_string("formspec", "field[channel;Channel;${channel}]".."field[ArduinoIPAddress;ArduinoIPAddress;${ArduinoIPAddress}]")
+	minetest.get_meta(pos):set_string("formspec", "field[channel;Channel (not used);${channel}]".."field[ArduinoIPAddress;Serverino Robot (PORT or HOST:PORT);${ArduinoIPAddress}]")
 end
 
 local clearscreen = function(pos)
