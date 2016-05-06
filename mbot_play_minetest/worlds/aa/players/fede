@@ -1,0 +1,64 @@
+breath = 11
+hp = 20
+name = fede
+pitch = 6.5
+position = (330.77,45,-334.17)
+version = 1
+yaw = -45.02
+PlayerArgsEnd
+List main 32
+Width 0
+Item default:sword_diamond
+Item default:ladder
+Item default:cobble
+Item mesecons:wire_00000000_off
+Item default:rail 23
+Item beds:fancy_bed_bottom
+Item default:torch 3
+Item default:glass
+Item default:dry_grass_1
+Item default:leaves
+Item default:jungletree
+Item beds:bed_bottom
+Item farming:wheat 4
+Item default:jungleleaves
+Item default:junglesapling
+Item default:junglegrass
+Item default:sand
+Item screwdriver:screwdriver
+Item default:coal_lump
+Item mesecons_torch:mesecon_torch_on
+Item default:dirt
+Item default:diamond
+Item default:sapling
+Item flowers:mushroom_brown
+Item default:tree
+Item default:acacia_sapling 2
+Item default:apple
+Item flowers:mushroom_red
+Item default:iron_lump
+Item default:nyancat_rainbow
+Item default:steelblock
+Empty
+EndInventoryList
+List craft 9
+Width 3
+Empty
+Empty
+Empty
+Empty
+Empty
+Empty
+Empty
+Empty
+Empty
+EndInventoryList
+List craftpreview 1
+Width 0
+Empty
+EndInventoryList
+List craftresult 1
+Width 0
+Empty
+EndInventoryList
+EndInventory

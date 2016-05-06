@@ -1,0 +1,64 @@
+breath = 11
+hp = 20
+name = radeox
+pitch = 34.89
+position = (304.19,45,-231)
+version = 1
+yaw = 155.22
+PlayerArgsEnd
+List main 32
+Width 0
+Item stairs:stair_stone
+Item default:stone
+Item mbot:lcc
+Item mesecons_luacontroller:luacontroller0000
+Item digilines_lcd:lcd
+Item mesecons:wire_00000000_off 2
+Item default:stonebrick
+Item mesecons_button:button_off
+Item beds:bed_bottom
+Item mesecons_walllever:wall_lever_off
+Item mesecons_torch:mesecon_torch_on
+Item default:ladder
+Item default:sign_wall
+Item default:dirt
+Item default:steelblock
+Item default:torch
+Item default:cobble
+Item default:tree
+Item default:leaves
+Item default:sapling
+Item default:grass_1
+Empty
+Item stairs:stair_stonebrick
+Item stairs:slab_stonebrick
+Item default:apple
+Item mesecons_microcontroller:microcontroller0000
+Item mesecons_lightstone:lightstone_red_off
+Item mesecons_lightstone:lightstone_green_off
+Item mesecons_lightstone:lightstone_blue_off
+Item mesecons_extrawires:corner_off
+Item mesecons_lightstone:lightstone_darkgray_off
+Item mesecons_lightstone:lightstone_gray_off
+EndInventoryList
+List craft 9
+Width 3
+Empty
+Empty
+Empty
+Empty
+Empty
+Empty
+Empty
+Empty
+Empty
+EndInventoryList
+List craftpreview 1
+Width 0
+Empty
+EndInventoryList
+List craftresult 1
+Width 0
+Empty
+EndInventoryList
+EndInventory

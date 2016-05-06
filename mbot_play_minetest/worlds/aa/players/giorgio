@@ -1,0 +1,64 @@
+breath = 11
+hp = 20
+name = giorgio
+pitch = 30.5
+position = (479.37,15,-244.9)
+version = 1
+yaw = 241.76
+PlayerArgsEnd
+List main 32
+Width 0
+Item bucket:bucket_empty
+Item bucket:bucket_empty
+Item bucket:bucket_empty
+Item bucket:bucket_empty
+Item bucket:bucket_empty
+Item bucket:bucket_empty
+Item bucket:bucket_empty
+Item bucket:bucket_empty
+Item default:leaves
+Item default:cobble
+Item default:apple
+Item default:tree
+Item default:dry_grass_1
+Item mesecons_microcontroller:microcontroller0000
+Item default:sapling
+Item mesecons_torch:mesecon_torch_on
+Item digilines_lcd:lcd
+Item mesecons_lightstone:lightstone_red_off
+Item default:rail
+Item stairs:stair_stone
+Item default:nyancat_rainbow
+Item default:acacia_leaves
+Item default:torch
+Item default:coal_lump
+Item stairs:slab_stonebrick
+Item default:sand
+Item default:iron_lump
+Empty
+Empty
+Empty
+Empty
+Empty
+EndInventoryList
+List craft 9
+Width 3
+Empty
+Empty
+Empty
+Empty
+Empty
+Empty
+Empty
+Empty
+Empty
+EndInventoryList
+List craftpreview 1
+Width 0
+Empty
+EndInventoryList
+List craftresult 1
+Width 0
+Empty
+EndInventoryList
+EndInventory

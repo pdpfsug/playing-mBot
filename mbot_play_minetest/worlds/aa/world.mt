@@ -98,3 +98,4 @@ load_mod_mbot123 = false
 load_mod_minetest_hardcore = false
 load_mod_ufos = false
 load_mod_mod-mbot = false
+load_mod_cartello = false

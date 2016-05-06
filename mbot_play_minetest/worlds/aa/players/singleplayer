@@ -1,0 +1,64 @@
+breath = 11
+hp = 20
+name = singleplayer
+pitch = -6.33
+position = (319.65,45,-175.87)
+version = 1
+yaw = -177.89
+PlayerArgsEnd
+List main 32
+Width 0
+Item mesecons_button:button_off
+Item default:stone
+Item mesecons_walllever:wall_lever_off
+Item default:torch
+Item mbot:lcc
+Item default:dirt_with_grass
+Item mesecons:wire_00000000_off
+Item digilines:wire_std_00000000
+Item digiterm:digiterm
+Item default:coal_lump
+Item mesecons_button:button_off
+Item default:steelblock
+Item default:gravel
+Item default:dirt_with_grass
+Item default:tree
+Item default:leaves
+Item mesecons_lightstone:lightstone_red_off
+Item wireless:trans
+Item wireless:recv
+Item mesecons_hydroturbine:hydro_turbine_off
+Item default:sand
+Item nixie_tubes:tube_off
+Item default:acacia_tree
+Item default:grass_1
+Item digilines_lcd:lcd
+Item digilines_rtc:rtc
+Item default:acacia_leaves
+Item mesecons_extrawires:corner_off
+Item default:water_source
+Item default:sign_wall 3
+Item default:jungletree
+Item mesecons_gates:and_off
+EndInventoryList
+List craft 9
+Width 3
+Empty
+Empty
+Empty
+Empty
+Empty
+Empty
+Empty
+Empty
+Empty
+EndInventoryList
+List craftpreview 1
+Width 0
+Empty
+EndInventoryList
+List craftresult 1
+Width 0
+Empty
+EndInventoryList
+EndInventory

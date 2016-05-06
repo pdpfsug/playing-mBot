@@ -1,0 +1,64 @@
+breath = 11
+hp = 20
+name = francesco
+pitch = -62.09
+position = (400.83,585,-194.69)
+version = 1
+yaw = 64.25
+PlayerArgsEnd
+List main 32
+Width 0
+Item mbot:lcc
+Item default:steelblock
+Item mesecons:wire_00000000_off
+Item default:ladder
+Item default:river_water_source
+Item mesecons_walllever:wall_lever_off
+Item mesecons_torch:mesecon_torch_on
+Item mesecons_lightstone:lightstone_green_off
+Item mesecons_insulated:insulated_off
+Item mesecons_extrawires:vertical_off
+Item mesecons_extrawires:tjunction_off
+Item mesecons_lightstone:lightstone_yellow_off
+Item default:dirt
+Item bucket:bucket_empty
+Item default:dry_grass_1 7
+Item default:glass
+Item default:coal_lump
+Item beds:bed_bottom
+Item mesecons_lightstone:lightstone_gray_off
+Item digilines:wire_std_00000000
+Item mesecons_extrawires:corner_off
+Item default:acacia_tree
+Item default:tree
+Item default:leaves
+Item mesecons_lightstone:lightstone_darkgray_off
+Item default:sapling
+Item default:apple 2
+Item default:iron_lump
+Item digilines_lcd:lcd
+Item mesecons_button:button_off
+Item default:jungletree
+Item mesecons_hydroturbine:hydro_turbine_off
+EndInventoryList
+List craft 9
+Width 3
+Empty
+Empty
+Empty
+Empty
+Empty
+Empty
+Empty
+Empty
+Empty
+EndInventoryList
+List craftpreview 1
+Width 0
+Empty
+EndInventoryList
+List craftresult 1
+Width 0
+Empty
+EndInventoryList
+EndInventory
