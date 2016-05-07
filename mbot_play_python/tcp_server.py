@@ -1,3 +1,4 @@
+#!/usr/bin/python2
 # -*- coding: utf-8 -*-
 
 """Server TCP MakerBot
@@ -19,7 +20,7 @@ __author__ = "Luca Ferroni <fero@befair.it>"
 __license__ = "GNU Affero Public License v3"
 
 HOST, PORT = "", 4444
-address = "00:07:02:03:20:94"  # indirizzo MAC device bluetoot del robottino di @KiraColci
+BLUETOOTH_ADDRESS = "00:07:02:03:20:94"  # indirizzo MAC device bluetoot del robottino di @KiraColci
 channel = 1
 TEST_MODE = False  # Mettere True per testare il tutto
 
@@ -81,8 +82,8 @@ class TestSocket(object):
     def connect(self, *args):
         print("Mi connetto a: %s" % args)
 
-    def recv(self):
-        print("Restituisco quello che mi e' stato dato")
+    def recv(self, nbytes):
+        print("Restituisco quello che mi e' stato dato. Ossia %s" % self.data)
         return self.data
 
     def send(self, data):
@@ -92,21 +93,37 @@ class TestSocket(object):
     sendall = send
 
 
+def usage():
+    print("Utilizzo: %s [PORT] [BLUETOOTH ADDRESS or 'test']" % sys.argv[0])
+
+
 if __name__ == "__main__":
+
+    SocketClass = Bluetooth.BluetoothSocket
+
+    # Parameters
+    # PORT
+    # BLUETOOTH ADDRESS or "test"
+    if len(sys.argv) > 1:
+        try:
+            PORT = int(sys.argv[1])
+        except ValueError:
+            usage()
+            print("--- LA PORTA DEVE ESSERE UN NUMERO")
+            sys.exit(1)
+
+        if len(sys.argv) > 2:
+            if sys.argv[2].lower() == "test":
+                SocketClass = TestSocket
+
+            BLUETOOTH_ADDRESS = sys.argv[2]
 
     # Create the server, binding to localhost on port 9999
     server = SocketServer.TCPServer((HOST, PORT), MakerBotTCPHandler)
-    
-    SocketClass = Bluetooth.BluetoothSocket
 
-    try:
-        if sys.argv[1] == "test":
-            SocketClass = TestSocket
-    except IndexError:
-        pass
-
+    # Connect to the bluetooth
     client_socket = SocketClass(Bluetooth.RFCOMM)
-    client_socket.connect((address, channel))
+    client_socket.connect((BLUETOOTH_ADDRESS, channel))
 
     # Activate the server; this will keep running until you
     # interrupt the program with Ctrl-C
