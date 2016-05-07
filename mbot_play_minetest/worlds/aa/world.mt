@@ -99,3 +99,4 @@ load_mod_minetest_hardcore = false
 load_mod_ufos = false
 load_mod_mod-mbot = false
 load_mod_cartello = false
+load_mod_mbot.orl = false
